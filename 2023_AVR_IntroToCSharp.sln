@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2023_AVR_IntroToCSharp", "2023_AVR_IntroToCSharp\2023_AVR_IntroToCSharp.csproj", "{EF50C8A0-895B-4C3B-8263-1576B46FE90B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF50C8A0-895B-4C3B-8263-1576B46FE90B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF50C8A0-895B-4C3B-8263-1576B46FE90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF50C8A0-895B-4C3B-8263-1576B46FE90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF50C8A0-895B-4C3B-8263-1576B46FE90B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B73EC69D-4154-43D4-A844-F614624CA6B2}
+	EndGlobalSection
+EndGlobal
