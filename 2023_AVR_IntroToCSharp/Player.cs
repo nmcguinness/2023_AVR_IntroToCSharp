@@ -6,12 +6,39 @@
     {
         #region Member Variables
 
-        private string name;
+        private string name;  //timeToLive => TimeToLive
         private int health;
-        private string type;
+        private string type; //beginner, intermediate, expert
         private int fuel;
 
         #endregion Member Variables
+
+        //if we only have a "setter" then this variable is IMMUTABLE
+        public string Type
+        {
+            get { return type; }
+        }
+
+        public int Health
+        {
+            get { return health; }
+
+            //ternary => (boolean expression) ? <true> : <false>
+            //set { health = (value < 0 || value > 100) ? 100 : value; }
+            set { health = (value >= 0 && value <= 100) ? value : 100; }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value == null || value.Length == 0)
+                    name = "beginner";
+                else
+                    name = value;
+            }
+        }
 
         #region Constructors
 
