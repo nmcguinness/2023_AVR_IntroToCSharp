@@ -1,4 +1,6 @@
-﻿namespace AVR.Entities
+﻿using AVR.Core;
+
+namespace AVR.Entities
 {
     //internal means we cannot see/use/access
     //Player in another "assembly"
@@ -8,13 +10,15 @@
 
         private string name;  //timeToLive => TimeToLive
         private int health;
-        private string type; //beginner, intermediate, expert
+        private AbilityType type; //beginner, intermediate, expert
         private int fuel;
 
         #endregion Member Variables
 
+        #region Properties
+
         //if we only have a "setter" then this variable is IMMUTABLE
-        public string Type
+        public AbilityType Type
         {
             get { return type; }
         }
@@ -40,10 +44,12 @@
             }
         }
 
+        #endregion Properties
+
         #region Constructors
 
         //constructor chaining
-        public Player() : this("", 0, "beginner", 100)
+        public Player() : this("", 0, AbilityType.Beginner, 100)
         {
             //this.name = "";
             //this.health = 0;
@@ -51,7 +57,7 @@
             //this.fuel = 100;
         }
 
-        public Player(string name, int health, string type, int fuel)
+        public Player(string name, int health, AbilityType type, int fuel)
         {
             this.name = name;
             this.health = health;
@@ -60,5 +66,17 @@
         }
 
         #endregion Constructors
+
+        #region Other Methods
+
+        public override string ToString()
+        {
+            //return "Name: " + this.name + ",Health: " + this.health;
+
+            //string interpolation
+            return $"Name: {name}, Health: {health}, Type: {type}";
+        }
+
+        #endregion Other Methods
     }
 }
