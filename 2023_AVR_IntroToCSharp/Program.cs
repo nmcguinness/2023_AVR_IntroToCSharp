@@ -18,7 +18,9 @@ namespace AVR
             p1.Health = 25; //by passing a value I use the setter
                             // p1.Type = "intermediate";
                             //use a getter
+
             AbilityType theType = p1.Type;
+            Console.WriteLine((int)theType);
 
             // Console.WriteLine(p1);
             Console.WriteLine(p1.ToString());
