@@ -59,10 +59,26 @@ namespace AVR
             foreach (Player p in pList2)
                 Console.WriteLine(p);
 
+            //make the upgraders (health, type) here
+            IUpgradeGameObject healthUpgrader = new UpgradePlayerHealth();
+            IUpgradeGameObject typeUpgrader = new UpgradePlayerType();
+
+            List<IUpgradeGameObject> listOfUpgrades = new List<IUpgradeGameObject>
+            {
+                new UpgradePlayerHealth(),
+                new UpgradePlayerType()
+            };
+
             foreach (Player p in pList2)
             {
-                UpgradeHealth(p);
-                UpgradeType(p);
+                foreach (IUpgradeGameObject upgrader in listOfUpgrades)
+                {
+                    upgrader.Upgrade(p);
+                }
+                //healthUpgrader.Upgrade(p);
+                //typeUpgrader.Upgrade(p);
+                //  UpgradeHealth(p);
+                //  UpgradeType(p);
             }
 
             Console.WriteLine("\npList2 after upgrades....\n");
@@ -96,22 +112,22 @@ namespace AVR
             Console.WriteLine(p1.ToString());
         }
 
-        public void UpgradeHealth(Player p)
-        {
-            //if low, then upgrade
-            if (p.Health < 100)
-                p.Health += 100;
-        }
+        //public void UpgradeHealth(Player p)
+        //{
+        //    //if low, then upgrade
+        //    if (p.Health < 100)
+        //        p.Health += 100;
+        //}
 
-        public void UpgradeType(Player p)
-        {
-            int typeAsInt = (int)p.Type;
+        //public void UpgradeType(Player p)
+        //{
+        //    int typeAsInt = (int)p.Type;
 
-            if (typeAsInt >= 1 && typeAsInt <= 3) //beginner -> expert
-            {
-                typeAsInt++; //promotion
-                p.Type = (AbilityType)typeAsInt; //converting a number back into an enum
-            }
-        }
+        //    if (typeAsInt >= 1 && typeAsInt <= 3) //beginner -> expert
+        //    {
+        //        typeAsInt++; //promotion
+        //        p.Type = (AbilityType)typeAsInt; //converting a number back into an enum
+        //    }
+        //}
     }
 }
