@@ -5,8 +5,8 @@
     public enum AbilityType : byte
     {
         Beginner = 1,           //0
-        Intermediate = 5,       //1
-        Expert = 2,             //2
-        God = 101               //3
+        Intermediate = 2,       //1
+        Expert = 3,             //2
+        God = 4               //3
     }
 }

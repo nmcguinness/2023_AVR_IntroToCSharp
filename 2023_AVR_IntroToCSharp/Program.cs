@@ -1,12 +1,66 @@
 ﻿using AVR.Core;
 using AVR.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace AVR
 {
     internal class Program
     {
+        private string ID; //instance variable
+
         private static void Main(string[] args)
+        {
+            //instance of Program == somewhere in RAM there is a BOX with all instance variable
+            Program myProg = new Program();
+            //call the non-static (instance) methods
+            myProg.Start();
+        }
+
+        //non-static method == instance method == can only call if we have instance
+        public void Start()
+        {
+            //class, properties, enums
+            DemoClassAndProperties();
+
+            //list
+            DemoList();
+
+            //interface
+            DemoInterface();
+
+            Console.ReadKey();
+        }
+
+        private void DemoList()
+        {
+            //version 1 of adding to a list
+            List<Player> pList1 = new List<Player>();
+            pList1.Add(new Player("a", 100, AbilityType.Intermediate, 1000));
+            pList1.Add(new Player("b", 50, AbilityType.God, 100000));
+
+            for (int i = 0; i < pList1.Count; i++)
+                Console.WriteLine(pList1[i]);
+
+            Console.WriteLine("\n-----------------");
+
+            foreach (Player p in pList1)
+                Console.WriteLine(p);
+
+            //version 2 of adding to a list - simple and faster
+            List<Player> pList2 = new List<Player>
+            {
+                new Player("a", 100, AbilityType.Intermediate, 1000),
+                new Player("b", 50, AbilityType.God, 100000)
+            };
+        }
+
+        private void DemoInterface()
+        {
+            //   throw new NotImplementedException();
+        }
+
+        public void DemoClassAndProperties()
         {
             Console.WriteLine("Hello World!");
 
@@ -24,8 +78,6 @@ namespace AVR
 
             // Console.WriteLine(p1);
             Console.WriteLine(p1.ToString());
-
-            Console.ReadKey();
         }
     }
 }
