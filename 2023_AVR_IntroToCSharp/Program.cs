@@ -50,9 +50,25 @@ namespace AVR
             //version 2 of adding to a list - simple and faster
             List<Player> pList2 = new List<Player>
             {
-                new Player("a", 100, AbilityType.Intermediate, 1000),
-                new Player("b", 50, AbilityType.God, 100000)
+                new Player("axe", 100, AbilityType.Beginner, 1000),
+                new Player("brutus", 50, AbilityType.God, 100000)
             };
+
+            Console.WriteLine("\npList2 before upgrades....\n");
+
+            foreach (Player p in pList2)
+                Console.WriteLine(p);
+
+            foreach (Player p in pList2)
+            {
+                UpgradeHealth(p);
+                UpgradeType(p);
+            }
+
+            Console.WriteLine("\npList2 after upgrades....\n");
+
+            foreach (Player p in pList2)
+                Console.WriteLine(p);
         }
 
         private void DemoInterface()
@@ -78,6 +94,24 @@ namespace AVR
 
             // Console.WriteLine(p1);
             Console.WriteLine(p1.ToString());
+        }
+
+        public void UpgradeHealth(Player p)
+        {
+            //if low, then upgrade
+            if (p.Health < 100)
+                p.Health += 100;
+        }
+
+        public void UpgradeType(Player p)
+        {
+            int typeAsInt = (int)p.Type;
+
+            if (typeAsInt >= 1 && typeAsInt <= 3) //beginner -> expert
+            {
+                typeAsInt++; //promotion
+                p.Type = (AbilityType)typeAsInt; //converting a number back into an enum
+            }
         }
     }
 }

@@ -21,6 +21,7 @@ namespace AVR.Entities
         public AbilityType Type
         {
             get { return type; }
+            set { type = value; }
         }
 
         public int Health
@@ -77,23 +78,23 @@ namespace AVR.Entities
             return $"Name: {name}, Health: {health}, Type: {type}";
         }
 
-        public void UpgradeHealth()
-        {
-            //if low, then upgrade
-            if (health < 100)
-                health += 100;
-        }
+        //public void UpgradeHealth()
+        //{
+        //    //if low, then upgrade
+        //    if (health < 100)
+        //        health += 100;
+        //}
 
-        public void UpgradeType()
-        {
-            int typeAsInt = (int)type;
+        //public void UpgradeType()
+        //{
+        //    int typeAsInt = (int)type;
 
-            if (typeAsInt >= 1 && typeAsInt <= 3) //beginner -> expert
-            {
-                typeAsInt++; //promotion
-                type = (AbilityType)typeAsInt; //converting a number back into an enum
-            }
-        }
+        //    if (typeAsInt >= 1 && typeAsInt <= 3) //beginner -> expert
+        //    {
+        //        typeAsInt++; //promotion
+        //        type = (AbilityType)typeAsInt; //converting a number back into an enum
+        //    }
+        //}
 
         #endregion Other Methods
     }
