@@ -29,6 +29,9 @@ namespace AVR
             //interface
             DemoInterface();
 
+            //Demo Events - Player (OnWin, OnDie, OnRespawn)
+
+            //stops console closing
             Console.ReadKey();
         }
 
@@ -50,8 +53,8 @@ namespace AVR
             //version 2 of adding to a list - simple and faster
             List<Player> pList2 = new List<Player>
             {
-                new Player("axe", 100, AbilityType.Beginner, 1000),
-                new Player("brutus", 50, AbilityType.God, 100000)
+                new Player("axe", 60, AbilityType.Beginner, 1000),
+                new Player("brutus", 10, AbilityType.God, 100000)
             };
 
             Console.WriteLine("\npList2 before upgrades....\n");
