@@ -1,12 +1,24 @@
-﻿namespace AVR
+﻿using System.Diagnostics.Contracts;
+
+namespace AVR
 {
     public class PlayerWithEvents
     {
         //delegate
-        public delegate void WinHandler();
+        public delegate void WinEventHandler();
 
         //event
-        public event WinHandler OnWin;
+        public event WinEventHandler OnWin;
+
+        public delegate void HelpEventHandler(string sender, string msg, int ammo);
+
+        public event HelpEventHandler OnHelp;
+
+        public void CallForHelp()
+        {
+            if (OnHelp != null)
+                OnHelp.Invoke(name, "I need help fast!", 25);
+        }
 
         public void SetWin()
         {

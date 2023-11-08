@@ -20,19 +20,54 @@ namespace AVR
         //non-static method == instance method == can only call if we have instance
         public void Start()
         {
-            //class, properties, enums
-            DemoClassAndProperties();
-
-            //list
-            DemoList();
-
-            //interface
-            DemoInterface();
-
             //Demo Events - Player (OnWin, OnDie, OnRespawn)
+            DemoEvents();
 
             //stops console closing
             Console.ReadKey();
+        }
+
+        private void DemoEvents()
+        {
+            //get a reference to the player
+            PlayerWithEvents p = new PlayerWithEvents(100, "bob");
+
+            //register for the event
+            p.OnWin += HandlePlayerWin; //game manager
+            p.OnWin += PlaySoundOnWin;  //sound manager
+            p.OnWin += ShowToastOnWin;  //ui manager
+
+            //raise the event
+            p.SetWin();
+
+            //deregister from the event
+            p.OnWin -= HandlePlayerWin;
+
+            //register for event that has parameters
+            p.OnHelp += RespondToCallForHelp;
+
+            //raise this event
+            p.CallForHelp();
+        }
+
+        private void RespondToCallForHelp(string sender, string msg, int ammo)
+        {
+            Console.WriteLine($"Responding to {sender} with message:{msg}");
+        }
+
+        private void ShowToastOnWin()
+        {
+            Console.WriteLine("You won!!!");
+        }
+
+        private void PlaySoundOnWin()
+        {
+            Console.WriteLine("Tada!");
+        }
+
+        private void HandlePlayerWin()
+        {
+            Console.WriteLine("Player just collected magic spanner");
         }
 
         private void DemoList()
